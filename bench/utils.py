@@ -101,14 +101,14 @@ def clone_apps_from(bench_path, clone_from):
 			# remove .egg-ino
 			subprocess.check_output(['rm', '-rf', app + '.egg-info'], cwd=app_path)
 
-			remotes = subprocess.check_output(['git', 'remote'], cwd=app_path).strip().split()
-			if 'upstream' in remotes:
-				remote = 'upstream'
-			else:
-				remote = remotes[0]
-			branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=app_path).strip()
-			subprocess.check_output(['git', 'reset', '--hard'], cwd=app_path)
-			subprocess.check_output(['git', 'pull', '--rebase', remote, branch], cwd=app_path)
+			# remotes = subprocess.check_output(['git', 'remote'], cwd=app_path).strip().split()
+			# if 'upstream' in remotes:
+			# 	remote = 'upstream'
+			# else:
+			# 	remote = remotes[0]
+			# branch = subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD'], cwd=app_path).strip()
+			# subprocess.check_output(['git', 'reset', '--hard'], cwd=app_path)
+			# subprocess.check_output(['git', 'pull', '--rebase', remote, branch], cwd=app_path)
 
 			install_app(app, bench_path)
 
