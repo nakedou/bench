@@ -89,8 +89,9 @@ def clone_apps_from(bench_path, clone_from):
 	print('Copying apps from {0}...'.format(clone_from))
 	subprocess.check_output(['cp', '-R', os.path.join(clone_from, 'apps'), bench_path])
 
-	print('Copying node_modules from {0}...'.format(clone_from))
-	subprocess.check_output(['cp', '-R', os.path.join(clone_from, 'node_modules'), bench_path])
+	if os.path.exists(os.path.join(clone_from, 'node_modules')):
+		print('Copying node_modules from {0}...'.format(clone_from))
+		subprocess.check_output(['cp', '-R', os.path.join(clone_from, 'node_modules'), bench_path])
 
 	def setup_app(app):
 		# run git reset --hard in each branch, pull latest updates and install_app
