@@ -2,8 +2,8 @@ Click
 jinja2
 virtualenv
 requests
-honcho
+honcho==1.0.1
 psutil
-python-crontab
+python-crontab==2.2.4
 semantic_version
 GitPython==0.3.2.rc1
